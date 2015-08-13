@@ -16,7 +16,9 @@ using std::string;
 #include <opencv2/opencv.hpp>
 
 #include "bb2_wrapper.h"
-bb2_wrapper m_camera(640,480);
+#define HEIGHT 480
+#define WIDTH 640
+bb2_wrapper m_camera( WIDTH, HEIGHT );
 IplImage* pfL;
 IplImage* pfR;
 IplImage* pframeL;
@@ -25,29 +27,29 @@ IplImage* disp8;
 
 int main( )
 {
-	pfL = cvCreateImage(cvSize(640,480),8,3);
-	pfR = cvCreateImage(cvSize(640,480),8,3);
-	disp8 = cvCreateImage(cvSize(640,480),8,1);
+	pfL = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 3 );
+	pfR = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 3 );
+	disp8 = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 1 );
 
 	DataCache< cv::Mat > dcL, dcR;
 
-	if( !m_camera.StartCamera() )
+	if( !m_camera.StartCamera( ) )
 	{
-		cout<<"StartCamera failed!"<<endl;
+		cout << "StartCamera failed!" << endl;
 		return -1;
 	}
 	else
 	{
 		//m_camera.showCameraInfo( );
 		m_camera.EnableStereoMatch( );
-		while (1)
+		while ( 1 )
 		{
-			if(m_camera.AcquireFrame()&&m_camera.StereoMatch())
+			if ( m_camera.AcquireFrame( ) && m_camera.StereoMatch( ) )
 			{
-				pframeL = m_camera.GetRetfImgL();
-				pframeR = m_camera.GetRetfImgR();
-				m_camera.Four2Three(pframeL,pfL);
-				m_camera.Four2Three(pframeR,pfR);
+				pframeL = m_camera.GetRetfImgL( );
+				pframeR = m_camera.GetRetfImgR( );
+				m_camera.Four2Three( pframeL, pfL );
+				m_camera.Four2Three( pframeR, pfR );
 
 				/*
 				disp8 = m_camera.getStereo( );
