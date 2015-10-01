@@ -1,11 +1,11 @@
-template < class DataType >
+template < class DataType, int CAPACITY >
 DataCache< DataType >::DataCache( )
 {
     lastIndex = -1;
     numDatas = 0;
 }
 
-template < class DataType >
+template < class DataType, int CAPACITY >
 void DataCache< DataType >::writeData( const DataType& newData )
 {
     lastIndex++;
@@ -22,7 +22,7 @@ void DataCache< DataType >::writeData( const DataType& newData )
     }
 }
 
-template < class DataType >
+template < class DataType, int CAPACITY >
 DataType DataCache< DataType >::getLastData( ) const
 {
     return lastDatas[ lastIndex ];
@@ -31,7 +31,7 @@ DataType DataCache< DataType >::getLastData( ) const
 // getLastDatas returns up to CAPACITY datas in a DataInfo struct;
 // the number of datas is also in the DataInfo struct.
 // Datas in the datas array are stored in order, with the latest data first
-template< class DataType >
+template< class DataType, int CAPACITY >
 DataInfo< DataType > DataCache< DataType >::getLastDatas( ) const
 {
     DataInfo< DataType > info;
