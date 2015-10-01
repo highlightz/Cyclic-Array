@@ -31,7 +31,7 @@ int main( )
 	pfR = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 3 );
 	disp8 = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 1 );
 
-	DataCache< cv::Mat > dcL, dcR;
+	DataCache< cv::Mat, 5 > dcL, dcR;
 
 	if( !m_camera.StartCamera( ) )
 	{
