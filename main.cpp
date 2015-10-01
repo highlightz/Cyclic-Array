@@ -18,7 +18,7 @@ int main( )
         cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
         cout << "The newest data is: " << dc.getLastData( ) << endl;
 
-        DataInfo< int > di;
+        DataInfo< int, 5 > di;
         di = dc.getLastDatas( );
         if ( di.numDatas > 1 )
         {
