@@ -25,13 +25,15 @@ IplImage* pframeL;
 IplImage* pframeR;
 IplImage* disp8;
 
+const int CACHE_CAPACITY = 5;
+
 int main( )
 {
 	pfL = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 3 );
 	pfR = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 3 );
 	disp8 = cvCreateImage( cvSize( WIDTH, HEIGHT ), 8, 1 );
 
-	DataCache< cv::Mat, 5 > dcL, dcR;
+	DataCache< cv::Mat, CACHE_CAPACITY > dcL, dcR;
 
 	if( !m_camera.StartCamera( ) )
 	{
@@ -63,7 +65,7 @@ int main( )
 				dcR.writeData( right );
 				//cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
 
-				DataInfo< cv::Mat, 5 > diL, diR;
+				DataInfo< cv::Mat, CACHE_CAPACITY > diL, diR;
 				diL = dcL.getLastDatas( );
 				diR = dcR.getLastDatas( );
 				if ( diL.numDatas > 1 )
