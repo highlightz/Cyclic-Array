@@ -6,9 +6,11 @@ using std::endl;
 
 #include "DataCache.h"
 
+const int CACHE_CAPACITY = 5;
+
 int main( )
 {
-	DataCache< int, 10 > dc;
+	DataCache< int, CACHE_CAPACITY > dc;
 	while ( 1 )
 	{
 		cout << "Enter a new data: ";
@@ -18,7 +20,7 @@ int main( )
 		cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
 		cout << "The newest data is: " << dc.getLastData( ) << endl;
 
-		DataInfo< int, 10 > di;
+		DataInfo< int, CACHE_CAPACITY > di;
 		di = dc.getLastDatas( );
 		if ( di.numDatas > 1 )
 		{
