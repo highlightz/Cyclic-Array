@@ -63,7 +63,7 @@ int main( )
 				dcR.writeData( right );
 				//cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
 
-				DataInfo< cv::Mat > diL, diR;
+				DataInfo< cv::Mat, 5 > diL, diR;
 				diL = dcL.getLastDatas( );
 				diR = dcR.getLastDatas( );
 				if ( diL.numDatas > 1 )
@@ -86,7 +86,7 @@ int main( )
 						ss << i + 1;
 						string windowName;
 						ss >> windowName;
-						windowName = "frameR " + windowName;
+						windowName = "frameR " + windowName;    
 						cv::imshow( windowName, diR.datas[i] );
 					}
 				}
