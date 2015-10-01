@@ -8,7 +8,7 @@ using std::endl;
 
 int main( )
 {
-    DataCache< int > dc;
+    DataCache< int, 5 > dc;
     while ( 1 )
     {
         cout << "Enter a new data: ";
