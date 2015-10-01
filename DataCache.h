@@ -1,10 +1,10 @@
 #ifndef DATACACHE_H
 #define DATACACHE_H
 
-const int CAPACITY = 5;
+//const int CAPACITY = 5;
 
 // The templates for an associated DataInfo and DataCache must match in DataType
-template < class DataType >
+template < class DataType,  int CAPACITY >
 struct DataInfo
 {
     int numDatas;
