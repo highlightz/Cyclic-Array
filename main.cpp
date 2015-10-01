@@ -8,27 +8,27 @@ using std::endl;
 
 int main( )
 {
-    DataCache< int, 5 > dc;
-    while ( 1 )
-    {
-        cout << "Enter a new data: ";
-        int newData;
-        cin >> newData;
-        dc.writeData( newData );
-        cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
-        cout << "The newest data is: " << dc.getLastData( ) << endl;
+	DataCache< int, 10 > dc;
+	while ( 1 )
+	{
+		cout << "Enter a new data: ";
+		int newData;
+		cin >> newData;
+		dc.writeData( newData );
+		cout << "The current number of datas in cache is: " << dc.getLastDatas( ).numDatas << endl;
+		cout << "The newest data is: " << dc.getLastData( ) << endl;
 
-        DataInfo< int, 5 > di;
-        di = dc.getLastDatas( );
-        if ( di.numDatas > 1 )
-        {
-            cout << "Your last datas are: " << endl;
-            for ( int i = 0; i < di.numDatas; i++ )
-            {
-                cout << di.datas[ i ] << endl;
-            }
-        }
-    }
+		DataInfo< int, 10 > di;
+		di = dc.getLastDatas( );
+		if ( di.numDatas > 1 )
+		{
+			cout << "Your last datas are: " << endl;
+			for ( int i = 0; i < di.numDatas; i++ )
+			{
+				cout << di.datas[ i ] << endl;
+			}
+		}
+	}
 
-    return 0;
+	return 0;
 }
